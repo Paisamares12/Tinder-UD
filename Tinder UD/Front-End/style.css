@@ -1,0 +1,1017 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;800&display=swap');
+
+:root {
+    --tinder-primary: #fd297b;
+    --tinder-secondary: #ff655b;
+    --tinder-gradient: linear-gradient(45deg, var(--tinder-primary), var(--tinder-secondary));
+    --text-white: #ffffff;
+    --bg-dark: #111418;
+    --glass-bg: rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    color: var(--text-white);
+    background-color: var(--bg-dark);
+    /* Landing page background */
+    background-image:
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),
+            url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tinder-logo-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: white;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.tinder-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    fill: white;
+}
+
+.login-btn {
+    background-color: white;
+    color: var(--tinder-primary);
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Section */
+.hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.hero-title {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    line-height: 1;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-start;
+}
+
+.reg-mark {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+.create-account-btn {
+    background: var(--tinder-gradient);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(253, 41, 123, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.create-account-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(253, 41, 123, 0.6);
+}
+
+/* Modal Core Styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-container {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    color: #333;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.2s;
+}
+
+.close-modal-btn:hover {
+    color: #333;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.modal-logo {
+    width: 40px;
+    margin-bottom: 1rem;
+}
+
+.modal-header h2 {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+    font-size: 0.8rem;
+    color: #777;
+    line-height: 1.4;
+    padding: 0 1rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--tinder-secondary);
+}
+
+.submit-btn {
+    background: var(--tinder-gradient);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: opacity 0.2s;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.modal-footer a {
+    color: var(--tinder-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.modal-footer a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   DESKTOP WEB STYLES (Phase 4)
+   ========================================= */
+
+body.desktop-body {
+    background: #f0f2f4;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+}
+
+/* Onboarding Centered */
+.onboarding-container {
+    background: white;
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    max-height: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    .onboarding-container {
+        height: 80vh;
+        border-radius: 20px;
+    }
+}
+
+/* WIZARD & COMMON STYLES */
+.wizard-header {
+    padding: 40px 20px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.progress-bar-container {
+    flex: 1;
+    height: 4px;
+    background: #eee;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--tinder-secondary);
+    width: 25%;
+    transition: width 0.3s ease;
+}
+
+.wizard-step {
+    flex: 1;
+    padding: 20px 30px;
+    display: none;
+    flex-direction: column;
+}
+
+.wizard-step.active-step {
+    display: flex;
+    animation: fadeIn 0.4s;
+}
+
+.wizard-step h2 {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.input-note {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 10px;
+}
+
+.wizard-footer {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.action-btn {
+    background: var(--tinder-gradient);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.date-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.gender-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gender-option {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gender-option:hover,
+.gender-option:has(input:checked) {
+    border-color: var(--tinder-secondary);
+    color: var(--tinder-secondary);
+}
+
+
+/* APP LAYOUT - Top Header + Main */
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background: #f5f7fa;
+}
+
+.app-header {
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to right, #fd267a, #ff6036);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    flex-shrink: 0;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.header-logo i {
+    margin-right: 8px;
+    font-size: 1.5rem;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.header-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid white;
+}
+
+.header-user-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.header-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.header-status {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.header-logout {
+    color: white;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.header-logout:hover {
+    opacity: 1;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    position: relative;
+    background: #f5f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Card Stack adjustments */
+.card-stack-container {
+    width: 100%;
+    max-width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-stack {
+    flex: 1;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.tinder-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    color: white;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 40%);
+}
+
+.card-info h3 {
+    font-size: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-info p {
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+.control-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    background: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+}
+
+.control-btn.like {
+    color: #4cd964;
+    border-color: #4cd964;
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+}
+
+.control-btn.nope {
+    color: #ff3b30;
+    border-color: #ff3b30;
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+}
+
+.control-btn.superlike {
+    color: #007aff;
+    border-color: #007aff;
+}
+
+.control-btn.refresh {
+    color: #ffcc00;
+    border-color: #ffcc00;
+}
+
+.control-btn.boost {
+    color: #a020f0;
+    border-color: #a020f0;
+}
+
+/* Match Modal */
+.match-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.match-content h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 4rem;
+    color: #4cd964;
+    transform: rotate(-5deg);
+    margin-bottom: 20px;
+}
+
+.match-avatars {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #ccc;
+    background-size: cover;
+    border: 4px solid white;
+}
+
+.match-btn {
+    display: block;
+    width: 300px;
+    margin: 15px auto;
+    padding: 18px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.match-btn.message {
+    background: #4cd964;
+    color: white;
+}
+
+.match-btn.keep-swiping {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+/* Chat Layout adjustments */
+.chat-layout {
+    display: flex;
+    align-items: stretch;
+    background: white;
+    width: 100%;
+}
+
+.matches-list-panel {
+    width: 350px;
+    border-right: 1px solid #eee;
+    overflow-y: auto;
+    background: white;
+}
+
+.chat-conversation-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+}
+
+.empty-chat-state {
+    text-align: center;
+    color: #ccc;
+}
+
+.chat-placeholder-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.panel-header {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    margin: 0;
+    color: var(--tinder-primary);
+}
+
+.matches-grid {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    overflow-x: auto;
+}
+
+.match-bubble {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    flex-shrink: 0;
+}
+
+.match-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #eee;
+    background-size: cover;
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gold-border {
+    border: 2px solid #d4af37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a68420;
+    font-weight: 700;
+    font-size: 0.8rem;
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.match-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.messages-list {
+    padding-top: 10px;
+}
+
+.message-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.message-item:hover {
+    background-color: #fcfcfc;
+}
+
+.avatar-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-color: #ccc;
+    margin-right: 15px;
+}
+
+.message-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.msg-name {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.msg-preview {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Profile Layout */
+.profile-layout {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    gap: 40px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.settings-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 500px;
+    height: fit-content;
+}
+
+.profile-preview {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .profile-preview {
+        display: block;
+    }
+}
+
+/* Settings Styles */
+.setting-group {
+    margin-top: 15px;
+    padding: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.setting-group h3 {
+    font-size: 0.8rem;
+    color: #777;
+    margin: 15px 0 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.setting-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+    font-size: 1rem;
+}
+
+.setting-item.range-item {
+    display: block;
+}
+
+.tinder-range {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #ccc;
+    border-radius: 2px;
+    outline: none;
+    margin-top: 10px;
+}
+
+.tinder-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: var(--tinder-secondary);
+}
+
+input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.logout-container {
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.logout-btn {
+    background: white;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    color: #666;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #f9f9f9;
+}
+
+.app-version {
+    color: #ccc;
+    font-size: 0.8rem;
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinder Clone - App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="app-body">
+
+<div class="mobile-frame">
+    <div class="notch"></div>
+
+    <!-- --- SECTION: ONBOARDING WIZARD --- -->
+    <section id="onboardingSection" class="app-section active">
+        <div class="wizard-header">
+            <button class="back-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="wizardProgress"></div>
+            </div>
+        </div>
+
+        <form id="profileWizardForm">
+            <!-- Step 1: Name -->
+            <div class="wizard-step active-step" data-step="1">
+                <h2>Mi nombre es</h2>
+                <input type="text" id="profileName" placeholder="Nombre" required>
+                <p class="input-note">Así aparecerá en tu perfil.</p>
+            </div>
+
+            <!-- Step 2: Age -->
+            <div class="wizard-step" data-step="2">
+                <h2>Mi cumpleaños es</h2>
+                <div class="date-inputs">
+                    <input type="number" placeholder="DD" class="date-field" id="dobDay">
+                    <input type="number" placeholder="MM" class="date-field" id="dobMonth">
+                    <input type="number" placeholder="YYYY" class="date-field" id="dobYear">
+                </div>
+                <p class="input-note">Tu edad será pública.</p>
+            </div>
+
+            <!-- Step 3: Gender -->
+            <div class="wizard-step" data-step="3">
+                <h2>Yo soy</h2>
+                <div class="gender-options">
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="woman">
+                        <span>Mujer</span>
+                    </label>
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="man">
+                        <span>Hombre</span>
+                    </label>
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="more">
+                        <span>Otro</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 4: Photos -->
+            <div class="wizard-step" data-step="4">
+                <h2>Añadir Fotos</h2>
+                <div class="photo-grid">
+                    <div class="photo-slot add-photo">+</div>
+                    <div class="photo-slot"></div>
+                    <div class="photo-slot"></div>
+                    <div class="photo-slot"></div>
+                    <div class="photo-slot"></div>
+                    <div class="photo-slot"></div>
+                </div>
+                <p class="input-note">Agrega al menos 2 fotos para continuar.</p>
+            </div>
+
+            <div class="wizard-footer">
+                <button type="button" class="action-btn" id="nextStepBtn">CONTINUAR</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- --- SECTION: MAIN APP (SWIPE) --- -->
+    <section id="mainAppSection" class="app-section hidden">
+        <header class="app-header">
+            <div class="header-icon"><i class="fas fa-user"></i></div> <!-- Profile -->
+            <div class="header-logo"><i class="fas fa-fire tinder-color"></i></div>
+            <div class="header-icon"><i class="fas fa-comments"></i></div> <!-- Chat -->
+        </header>
+
+        <div class="card-stack" id="cardStack">
+            <!-- Cards will be injected here by JS -->
+            <div class="status-overlay" id="statusOverlay"></div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn refresh"><i class="fas fa-undo"></i></button>
+            <button class="control-btn nope" id="nopeBtn"><i class="fas fa-times"></i></button>
+            <button class="control-btn superlike"><i class="fas fa-star"></i></button>
+            <button class="control-btn like" id="likeBtn"><i class="fas fa-heart"></i></button>
+            <button class="control-btn boost"><i class="fas fa-bolt"></i></button>
+        </div>
+    </section>
+
+    <!-- --- SECTION: SETTINGS (PREFERENCES) --- -->
+    <section id="settingsSection" class="app-section hidden">
+        <header class="app-header secondary-header">
+            <div class="header-icon" id="settingsBackBtn"><i class="fas fa-chevron-left"></i></div>
+            <h2>Ajustes</h2>
+            <div class="header-icon hidden"></div>
+        </header>
+        <div class="settings-content scrollable">
+            <div class="setting-group">
+                <h3>Ajustes de la cuenta</h3>
+                <div class="setting-item">
+                    <span>Número de teléfono</span>
+                    <span class="text-muted">ES +34 600...</span>
+                </div>
+                <div class="setting-item">
+                    <span>Email</span>
+                    <span class="text-muted">usuario@example.com</span>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3>Ajustes de descubrimiento</h3>
+                <div class="setting-item">
+                    <span>Ubicación</span>
+                    <span class="text-active">Mi ubicación actual</span>
+                </div>
+                <div class="setting-item range-item">
+                    <div class="range-header">
+                        <span>Distancia máxima</span>
+                        <span>10km</span>
+                    </div>
+                    <input type="range" class="tinder-range" value="10" min="1" max="100">
+                </div>
+                <div class="setting-item range-item">
+                    <div class="range-header">
+                        <span>Rango de edad</span>
+                        <span>18 - 28</span>
+                    </div>
+                    <input type="range" class="tinder-range" value="28" min="18" max="100">
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-item toggle-item">
+                    <span>Mostrarme en Tinder</span>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="logout-container">
+                <button class="logout-btn">Cerrar Sesión</button>
+                <div class="app-version">Versión 11.23.0</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SECTION: MATCHES & CHAT --- -->
+    <section id="chatSection" class="app-section hidden">
+        <header class="app-header secondary-header">
+            <div class="header-icon" id="chatBackBtn"><i class="fas fa-fire tinder-color"></i></div>
+            <div class="tabs">
+                <span class="tab active">Mensajes</span>
+                <span class="tab">Feed</span>
+            </div>
+            <div class="header-icon"><i class="fas fa-shield-alt"></i></div>
+        </header>
+
+        <div class="chat-content scrollable">
+            <div class="matches-row-container">
+                <h3 class="section-title">Nuevos Matches</h3>
+                <div class="matches-row" id="matchesList">
+                    <!-- Matches injected here -->
+                    <div class="match-bubble placeholder">
+                        <div class="match-img gold-border"><span>99+</span></div>
+                        <span class="match-name">Likes</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="messages-list" id="messagesList">
+                <h3 class="section-title">Mensajes</h3>
+                <!-- Message Preview Item -->
+                <div class="message-item">
+                    <div class="avatar-small"
+                         style="background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=100&q=60')">
+                    </div>
+                    <div class="message-info">
+                        <span class="msg-name">Laura</span>
+                        <span class="msg-preview">¡Hola! ¿Qué tal tu día?</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- MODAL: MATCH --- -->
+    <div id="matchModal" class="match-modal hidden">
+        <div class="match-content">
+            <h1>¡Es un Match!</h1>
+            <p>Tú y <span id="matchName">User</span> se gustan.</p>
+            <div class="match-avatars">
+                <div class="avatar my-avatar"></div>
+                <div class="avatar match-avatar"></div>
+            </div>
+            <button class="match-btn message">Enviar Mensaje</button>
+            <button class="match-btn keep-swiping" id="closeMatchBtn">Seguir Deslizando</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinder Clone - Descubrir</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="desktop-body app-layout">
+
+<!-- Top Header Navigation -->
+<header class="app-header">
+    <div class="header-left">
+        <a href="recs.html" class="header-logo"><i class="fas fa-fire"></i> tinder</a>
+        <nav class="header-nav">
+            <a href="recs.html" class="nav-link active"><i class="fas fa-fire"></i> Coincidencias</a>
+            <a href="matches.html" class="nav-link"><i class="fas fa-comments"></i> Mensajes</a>
+        </nav>
+    </div>
+    <div class="header-right">
+        <a href="profile.html" class="header-profile">
+            <div class="header-avatar"
+                 style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=60');">
+            </div>
+            <div class="header-user-info">
+                <span class="header-name">Andrea</span>
+                <span class="header-status">Mi Perfil</span>
+            </div>
+        </a>
+        <a href="index.html" class="header-logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i></a>
+    </div>
+</header>
+
+<!-- Área Principal de Swipe -->
+<main class="main-content">
+    <div class="card-stack-container">
+        <div class="card-stack" id="cardStack">
+            <!-- Cards injected via JS -->
+            <div class="status-overlay" id="statusOverlay"></div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn refresh"><i class="fas fa-undo"></i></button>
+            <button class="control-btn nope" id="nopeBtn"><i class="fas fa-times"></i></button>
+            <button class="control-btn superlike"><i class="fas fa-star"></i></button>
+            <button class="control-btn like" id="likeBtn"><i class="fas fa-heart"></i></button>
+            <button class="control-btn boost"><i class="fas fa-bolt"></i></button>
+        </div>
+    </div>
+</main>
+
+<!-- Modal Match -->
+<div id="matchModal" class="match-modal hidden">
+    <div class="match-content">
+        <h1>¡Es un Match!</h1>
+        <p>Tú y <span id="matchName">User</span> se gustan.</p>
+        <div class="match-avatars">
+            <div class="avatar my-avatar"></div>
+            <div class="avatar match-avatar"></div>
+        </div>
+        <button class="match-btn message">Enviar Mensaje</button>
+        <button class="match-btn keep-swiping" id="closeMatchBtn">Seguir Deslizando</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
