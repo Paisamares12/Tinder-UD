@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinder Clone - Perfil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="desktop-body app-layout">
+
+<!-- Top Header Navigation -->
+<header class="app-header">
+    <div class="header-left">
+        <a href="recs.html" class="header-logo"><i class="fas fa-fire"></i> tinder</a>
+        <nav class="header-nav">
+            <a href="recs.html" class="nav-link"><i class="fas fa-fire"></i> Coincidencias</a>
+            <a href="matches.html" class="nav-link"><i class="fas fa-comments"></i> Mensajes</a>
+        </nav>
+    </div>
+    <div class="header-right">
+        <a href="profile.html" class="header-profile">
+            <div class="header-avatar"
+                 style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=60');">
+            </div>
+            <div class="header-user-info">
+                <span class="header-name">Andrea</span>
+                <span class="header-status">Mi Perfil</span>
+            </div>
+        </a>
+        <a href="index.html" class="header-logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i></a>
+    </div>
+</header>
+
+<!-- Área Principal de Perfil -->
+<main class="main-content profile-layout">
+    <div class="settings-container">
+        <h2>Ajustes</h2>
+
+        <div class="setting-group">
+            <h3>Ajustes de la cuenta</h3>
+            <div class="setting-item">
+                <span>Número de teléfono</span>
+                <span class="text-muted">ES +34 600...</span>
+            </div>
+            <div class="setting-item">
+                <span>Email</span>
+                <span class="text-muted">usuario@example.com</span>
+            </div>
+        </div>
+
+        <div class="setting-group">
+            <h3>Ajustes de descubrimiento</h3>
+            <div class="setting-item">
+                <span>Ubicación</span>
+                <span class="text-active">Mi ubicación actual</span>
+            </div>
+            <div class="setting-item range-item">
+                <div class="range-header">
+                    <span>Distancia máxima</span>
+                    <span>10km</span>
+                </div>
+                <input type="range" class="tinder-range" value="10" min="1" max="100">
+            </div>
+            <div class="setting-item range-item">
+                <div class="range-header">
+                    <span>Rango de edad</span>
+                    <span>18 - 28</span>
+                </div>
+                <input type="range" class="tinder-range" value="28" min="18" max="100">
+            </div>
+        </div>
+
+        <div class="setting-group">
+            <div class="setting-item toggle-item">
+                <span>Mostrarme en Tinder</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="logout-container">
+            <button class="logout-btn" onclick="window.location.href='index.html'">Cerrar Sesión</button>
+            <div class="app-version">Versión 11.23.0</div>
+        </div>
+    </div>
+
+    <!-- Preview de Perfil (Columna derecha opcional) -->
+    <div class="profile-preview">
+        <div class="tinder-card static-preview"
+             style="background-image: url('https://dummyimage.com/100x100/ccc/fff'); height: 400px; width: 300px; position:relative;">
+            <div class="card-info">
+                <h3>Yo, 24</h3>
+                <p>Mi biografía genial.</p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+
+</html>

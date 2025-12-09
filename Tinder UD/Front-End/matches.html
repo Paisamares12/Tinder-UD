@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinder Clone - Mensajes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="desktop-body app-layout">
+
+<!-- Top Header Navigation -->
+<header class="app-header">
+    <div class="header-left">
+        <a href="recs.html" class="header-logo"><i class="fas fa-fire"></i> tinder</a>
+        <nav class="header-nav">
+            <a href="recs.html" class="nav-link"><i class="fas fa-fire"></i> Coincidencias</a>
+            <a href="matches.html" class="nav-link active"><i class="fas fa-comments"></i> Mensajes</a>
+        </nav>
+    </div>
+    <div class="header-right">
+        <a href="profile.html" class="header-profile">
+            <div class="header-avatar"
+                 style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=60');">
+            </div>
+            <div class="header-user-info">
+                <span class="header-name">Andrea</span>
+                <span class="header-status">Mi Perfil</span>
+            </div>
+        </a>
+        <a href="index.html" class="header-logout" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i></a>
+    </div>
+</header>
+
+<!-- Área Principal de Chat -->
+<main class="main-content chat-layout">
+    <div class="matches-list-panel">
+        <h3 class="panel-header">Matches</h3>
+        <div class="matches-grid" id="matchesList">
+            <div class="match-bubble placeholder">
+                <div class="match-img gold-border"><span>99+</span></div>
+                <span class="match-name">Likes</span>
+            </div>
+        </div>
+
+        <h3 class="panel-header">Mensajes</h3>
+        <div class="messages-list">
+            <div class="message-item">
+                <div class="avatar-small"
+                     style="background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=100&q=60')">
+                </div>
+                <div class="message-info">
+                    <span class="msg-name">Laura</span>
+                    <span class="msg-preview">¡Hola! ¿Qué tal tu día?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-conversation-panel">
+        <div class="empty-chat-state">
+            <i class="fas fa-comments chat-placeholder-icon"></i>
+            <p>Selecciona un match para empezar a chatear</p>
+        </div>
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+
+</html>

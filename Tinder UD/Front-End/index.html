@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinder | Citas, Amigos & Encuentros Nuevos</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Icono de pestaña (favicon) opcional -->
+    <link rel="icon" href="https://tinder.com/static/favicon.ico" />
+</head>
+
+<body>
+
+<!-- Header: Logo y Botón Login -->
+<header class="header">
+    <a href="#" class="logo-container">
+        <!-- Icono SVG simple de la flama -->
+        <svg class="tinder-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                    d="M12.83,2.44C12.44,2.23 11.83,2.26 11.53,2.7C8.56,7.11 7.26,8.59 7.21,11.53C7.16,14.44 9.14,17.43 11.41,18.84C10.74,18.5 10.15,18.06 9.68,17.53C9.43,17.26 9.21,16.96 9,16.65C9.8,19.26 11.77,21.57 14.5,21.93C17.34,22.3 20.21,20.76 21.46,18.24C22.61,15.91 22.1,13.13 20.35,11.23C20.08,10.94 19.78,10.68 19.46,10.45C19.73,11.77 19.28,13.15 18.24,14.07C16.9,15.26 14.86,15.06 13.9,13.68C13.25,12.75 13.19,11.53 13.56,10.5C13.84,9.75 14.33,9.1 14.95,8.58C14.96,8.57 14.97,8.57 14.97,8.56C15.54,7.9 15.93,7.09 16.03,6.21C16.14,5.29 15.86,4.35 15.3,3.61C14.73,2.86 13.86,2.42 12.83,2.44H12.83Z" />
+        </svg>
+        <span class="tinder-logo-text">tinder</span>
+    </a>
+
+    <button class="login-btn">Log in</button>
+</header>
+
+<!-- Main Content: Swipe Right -->
+<main class="hero">
+    <h1 class="hero-title">
+        Swipe Right
+        <span class="reg-mark">&reg;</span>
+    </h1>
+    <button class="create-account-btn" id="createAccountBtn">Create account</button>
+</main>
+
+<!-- Auth Modal -->
+<div class="modal-overlay" id="authModal">
+    <div class="modal-container">
+        <button class="close-modal-btn" id="closeModal">&times;</button>
+
+        <div class="modal-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111653.png" alt="Tinder Logo" class="modal-logo">
+            <h2 id="modalTitle">GET STARTED</h2>
+            <p class="modal-subtitle">By clicking Log In, you agree to our Terms. Learn how we process your data in
+                our Privacy Policy and Cookie Policy.</p>
+        </div>
+
+        <div class="auth-forms">
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <div class="input-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="submit-btn">LOG IN</button>
+            </form>
+
+            <!-- Register Form (Initially Hidden) -->
+            <form id="registerForm" class="auth-form hidden">
+                <div class="input-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" placeholder="Enter your password" required>
+                </div>
+                <div class="input-group">
+                    <label for="regConfirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="submit-btn" id="regSubmitBtn">CREATE ACCOUNT</button>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <p id="toggleText">Don't have an account? <a href="#" id="toggleAuthMode">Sign up</a></p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
